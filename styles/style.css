@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Torus";
+  src: url("./Torus-Regular.734ed3ae.otf");
+  font-weight: regular;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: "Torus";
+  background-color: #18171c;
+  color: white;
+}
+
+#logo {
+  width: 75px;
+  height: 75px;
+}
+
+.head {
+  background-image: url("../public/bg.jpg");
+  animation: bgMove 300s linear infinite;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes bgMove {
+  from {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 -1386;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.head > div {
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 70vw;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.nav-container{
+  width: 100%;
+  height: 75px;
+}
+
+.nav-container > h1 {
+  text-align: left;
+  margin: 3 25;
+}
+
+.nav-top {
+  display: flex;
+  width: 50%;
+}
+
+.nav-top > a {
+  margin: 0 25;
+  font-size: 13pt;
+}
+
+.container {
+  text-align: center;
+}
+
+.content {
+  background-color: #2e293d;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 15 25;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+section > p {
+  text-align: left;
+}
+
+.bottom {
+  margin-top: 10px;
+  padding: 5 0;
+  background-color: #2e293d;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bottom > nav, address {
+  width: 25vw;
+  margin: 5 auto;
+  display: flex;
+  justify-content: center;
+}
+
+#bot-anchors > h6 {
+  margin: 0 15;
+}
+
+#bot-anchors a:hover, #contacts > a:hover, .nav-top > a:hover {
+  transition: .1s linear;
+  color: #c2b8e0;
+}
+
+#contacts > a {
+  font-size: 10pt;
+  margin: 0 15;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h6 {
+  margin: 0;
+}
+
+.basics-container ol {
+  text-align: left;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.scrsh_container > img {
+  width: 1000px;
+  height: auto;
+}
+
+.scrsh_container {
+  margin-bottom: 25px;
+}
