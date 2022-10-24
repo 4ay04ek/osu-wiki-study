@@ -1,7 +1,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="./public/emodzi-osu.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./public/emodzi-osu.png" />
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
     <title>osu!wiki</title>
   </head>
@@ -12,116 +13,70 @@
           <a href="https://osu.ppy.sh"><img id="logo" src="./public/emodzi-osu.png" /></a>
           <div class="nav-container">
             <h1>osu!wiki</h1>
-            <nav class="nav-top"><a href = "./basics">Basics</a><a href = "./guides">Guides</a><a href = "./techs">Techniques</a><a href="./history">History</a></nav>
+            <nav class="nav-top">
+              <a href="./index.html">Home</a><a href="./guides">Guides</a><a href="./techs">Techniques</a
+              ><a href="./history">History</a>
+            </nav>
           </div>
+          <input type="checkbox" id="berger-btn" />
+          <label class="berger" for="berger-btn">
+            <div class="berger-line"></div>
+            <div class="berger-line"></div>
+            <div class="berger-line"></div>
+          </label>
+          <nav class="nav-mobile">
+            <div class="nav-mobile-item"><a href="./index.html">> Home</a></div>
+            <div class="nav-mobile-item"><a href="./guides">> Guides</a></div>
+            <div class="nav-mobile-item"><a href="./techs">> Techniques</a></div>
+            <div class="nav-mobile-item"><a href="./history">> History</a></div>
+          </nav>
         </div>
       </header>
-      <main class="content" style="display: flex;">
-        <article>
-          <section class="about-container">
-            <h2 id="about">About</h2>
-            <p>
-              <i><b>osu!</b></i> is a <b>free-to-play</b> rhythm game created by Dean "peppy" Herbert.
-            </p>
-          </section>
-          <section class="basics-container">
-            <h2 id="basics">Basics</h2>
-            <ol start="1">
-              <li>
-                Game Modes
-                <ul type="circle">
-                  <li><abbr title="osu!standart">osu!std</abbr></li>
-                  <li>osu!mania</li>
-                  <li>osu!taiko</li>
-                  <li><abbr title="Catch The Beat">osu!ctb</abbr></li>
-                </ul>
-              </li>
-              <li>
-                Terms
-                <dl>
-                  <dt>Notes</dt>
-                  <dd>Circle with approaching circle, that you need to click in proper time</dd>
-                  <dt>Slider</dt>
-                  <dd>
-                    Object with head, body and tail. Player must press the beginning of slider and, keeping button
-                    pressed, follow moving circle along the track until slidertail reached.
-                  </dd>
-                  <dt>Spinner</dt>
-                  <dd>When huge circle appears at screen center player needs to draw circles as fast as possible.</dd>
-                  <dt>BPM</dt>
-                  <dd>
-                    Beats per minute - same term as in music theory. It stands for the number of ticks per minute, that
-                    fits the music perfectly.
-                  </dd>
-                  <dt>PP</dt>
-                  <dd>Perfomance Points - score, that you gain after playing a ranked map.</dd>
-                </dl>
-              </li>
-            </ol>
-          </section>
-          <section class="scrsh_container">
-            <h3 id="scrsh">Gameplay Screenshot</h3>
-            <img src="./public/123.jpg" usemap="#shape" />
-            <map id="map" name="shape">
-              <area
-                alt="Hit Circle"
-                title="Hit Circle"
-                href="https://osu.ppy.sh/wiki/en/Hit_object/Hit_circle"
-                coords="603.1465226198515,121.10735989196488,43.8217420661715"
-                shape="circle"
-              />
-              <area
-                alt="Hit Circle"
-                title="Hit Circle"
-                href="https://osu.ppy.sh/wiki/en/Hit_object/Hit_circle"
-                coords="748.1566509115462,219.10871033085752,44.618501012829164"
-                shape="circle"
-              />
-              <area
-                alt="Hit Circle"
-                title="Hit Circle"
-                href="https://osu.ppy.sh/wiki/en/Hit_object/Hit_circle"
-                coords="767.2788656313301,337.02903443619175,43.8217420661715"
-                shape="circle"
-              />
-              <area
-                alt="Slider"
-                title="Slider"
-                href="https://osu.ppy.sh/wiki/en/Gameplay/Hit_object/Slider"
-                coords="525.860904794058,383.2410533423362,566.4956110735989,373.6799459824443,613.504388926401,368.89939230249826,662.1066846725186,376.8669817690749,698.757596218771,390.4118838622552,730.6279540850776,403.95678595543546,749.7501688048615,423.8757596218771,756.9209993247805,450.9655638082376,740.1890614449695,480.44564483457117,705.9284267386901,487.61647535449015,645.3747467927076,457.33963538149897,599.9594868332207,452.55908170155294,571.2761647535449,456.5428764348413,542.592842673869,466.10398379473327,514.7062795408507,451.7623227548953,505.14517218095875,424.6725185685347,508.3322079675894,400.7697501688048"
-                shape="poly"
-              />
-              <area
-                alt="HP Bar"
-                title="HP Bar"
-                href="https://osu.ppy.sh/wiki/en/Client/Interface/Health_bar"
-                coords="502.7548953409858,26.293045239702902,1.5935178933153273,0"
-                shape="rect"
-              />
-              <area
-                alt="Accuracy"
-                title="Accuracy"
-                href="https://osu.ppy.sh/wiki/en/Gameplay/Accuracy"
-                coords="392.0054017555705,543.3896016205266,606.3335584064821,560.9182984469952"
-                shape="rect"
-              />
-            </map>
-          </section>
-        </article>
-        <aside>aside tag: pishu, umeyu, practicuyu</aside>
+      <main class="content">
+        <section>
+          <p>Hi, this is osu!wiki.</p>
+          <p>Here i tried to write everything i know about osu!</p>
+          <p>
+            By the way, 75% of information on this site is copypasted from official
+            <a style="text-decoration: underline" href="https://osu.ppy.sh/wiki/en/Main_Page">wiki</a>
+          </p>
+        </section>
+        <section id="overview">
+          <div class="item" onclick="window.location.href = 'pages/feedback.html'">
+            <p>Feedback</p>
+          </div>
+          <div class="item" onclick="window.location.href = 'pages/findmap.html'">
+            <p>Find map</p>
+          </div>
+          <div class="item" onclick="window.location.href = 'pages/skins.html'">
+            <p>Skins</p>
+          </div>
+          <div class="item">
+            <p>Something</p>
+          </div>
+        </section>
       </main>
       <footer class="bottom">
-        <nav id="bot-anchors">
-          <h6><a href="#about">About</a></h6>
-          <h6><a href="#basics">Basics</a></h6>
-          <h6><a href="#scrsh">Gameplay Screenshot</a></h6>
-        </nav>
+        <div id="disclaimer">
+          <p>
+            This is fanmade website created on academical purposes. Please use official site -
+            <a href="ppy.osy.sh">ppy.osu.sh</a>
+          </p>
+        </div>
         <address id="contacts">
-          <a href="tel:+79876543210">+79876543210</a>
-          <a href="mailto:support@ppy.sh">support@ppy.sh</a>
+          <p>For contact use official email - <a href="mailto:support@ppy.sh">support@ppy.sh</a></p>
         </address>
       </footer>
     </div>
+    <div id="cookie-notif">
+      <img src="./public/cookie-svgrepo-com.svg" width="35" height="auto" />
+      <div id="cookie-txt">Accept or deny some of cookies:</div>
+      <div id="c1" class="cookie" style="margin-top: 45px">Cookie 1</div>
+      <div id="c2" class="cookie">Cookie 2</div>
+      <div id="c3" class="cookie">Cookie 3</div>
+      <div id="c4" class="cookie">Cookie 4</div>
+    </div>
   </body>
+  <script src="./js/anime.min.js"></script>
   <script src="./js/main.js"></script>
 </html>

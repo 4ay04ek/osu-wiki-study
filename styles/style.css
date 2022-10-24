@@ -13,11 +13,14 @@ body {
 }
 
 #logo {
+  position: relative;
   width: 75px;
   height: 75px;
 }
 
 .head {
+  z-index: 100;
+  position: sticky;
   background-image: url("../public/bg.jpg");
   animation: bgMove 300s linear infinite;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -35,16 +38,16 @@ body {
   }
 }
 
-.head > div {
+.head-container {
   color: white;
   display: flex;
   align-items: center;
   width: 70vw;
-  height: 150px;
+  height: 100px;
   margin: 0 auto;
 }
 
-.nav-container{
+.nav-container {
   width: 100%;
   height: 75px;
 }
@@ -69,43 +72,47 @@ body {
 }
 
 .content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: #2e293d;
-  width: 1200px;
+  max-width: 1200px;
+  min-width: 700px;
   margin: 0 auto;
+  margin-bottom: 100px;
   padding: 15 25;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
-section > p {
-  text-align: left;
+section {
+  background-color: #3d3946;
+  padding: 15px;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.bottom {
-  margin-top: 10px;
-  padding: 5 0;
-  background-color: #2e293d;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+#overview {
+  margin-top: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
 }
 
-.bottom > nav, address {
-  width: 25vw;
-  margin: 5 auto;
-  display: flex;
-  justify-content: center;
+.item {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #5639ac;
 }
 
-#bot-anchors > h6 {
-  margin: 0 15;
+.item:active {
+  background-color: #45289b;
 }
 
-#bot-anchors a:hover, #contacts > a:hover, .nav-top > a:hover {
-  transition: .1s linear;
+a:hover {
+  transition: 0.1s linear;
   color: #c2b8e0;
-}
-
-#contacts > a {
-  font-size: 10pt;
-  margin: 0 15;
 }
 
 a {
@@ -113,23 +120,274 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h6 {
-  margin: 0;
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: 5 0;
+  background-color: #2e293d;
+  font-size: 8pt;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
-.basics-container ol {
-  text-align: left;
+.bottom p {
+  margin: 7 0;
 }
 
-abbr {
-  text-decoration: none;
+address {
+  font-style: normal;
 }
 
-.scrsh_container > img {
-  width: 1000px;
-  height: auto;
+#map-id {
+  background-color: transparent;
+  font-family: "Torus";
+  font-size: 20px;
+  color: white;
+  width: 15em;
+  height: 2em;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  margin-left: 2em;
+  transition: width 0.3s ease-out;
 }
 
-.scrsh_container {
-  margin-bottom: 25px;
+#map-id:focus {
+  width: 90%;
+}
+
+#map-id:focus::placeholder {
+  font-size: 0;
+}
+
+.findmap-video-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-container {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.player-container:hover::after {
+  content: "videoname";
+  position: absolute;
+  font-size: 26px;
+  top: -20%;
+  left: 40%;
+}
+
+#findmap-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+input {
+  width: fit-content;
+  margin: 5 0;
+  background-color: transparent;
+  font-family: "Torus";
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+}
+
+input[type^="submit"] {
+  background-color: white;
+  border: 0;
+  color: black;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: 0.1s;
+}
+
+input[type^="submit"]:active {
+  background-color: gray;
+}
+
+textarea {
+  width: 300px;
+  height: 150px;
+}
+
+.berger {
+  visibility: hidden;
+  width: 40px;
+  cursor: pointer;
+}
+
+.berger-line {
+  height: 4px;
+  background-color: white;
+  width: 40px;
+  border-radius: 4px;
+  margin: 10 0;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+#berger-btn:checked ~ .nav-mobile {
+  user-select: none;
+  display: block;
+  position: absolute;
+  color: #87868a;
+  top: 75px;
+  left: 0px;
+  width: 100vw;
+  background-color: #24222a;
+  animation: menu-drop 0.3s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.nav-mobile-item {
+  font-size: 18px;
+  width: fit-content;
+  height: fit-content;
+  margin: 15 0;
+  margin-left: 25px;
+}
+
+.nav-mobile-item > a:hover {
+  color: white;
+}
+
+#berger-btn:checked ~ .berger {
+  animation: menu-rotate 0.3s linear;
+}
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30 30;
+}
+
+.skin-image-container {
+  position: relative;
+  flex: auto;
+  min-width: fit-content;
+  min-height: fit-content;
+  margin: 15 15;
+}
+
+.skin-image-container > img:hover {
+  transition: 0.1s linear;
+  filter: blur(3px);
+}
+
+.skin-image-container:hover::after {
+  content: attr(skin);
+  font-size: 36px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+
+@keyframes menu-drop {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 166px;
+  }
+}
+
+@keyframes menu-rotate {
+  from {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 90deg;
+  }
+  to {
+    rotate: 180deg;
+  }
+}
+
+#berger-btn {
+  opacity: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .nav-top {
+    visibility: hidden;
+    width: 0;
+  }
+  .head {
+    min-width: 340px;
+  }
+  .head-container {
+    width: 90vw;
+    height: 75px;
+  }
+  .nav-container {
+    height: 60px;
+  }
+  .nav-container > h1 {
+    line-height: 60px;
+    margin: 0;
+    margin-left: 20px;
+  }
+  #logo {
+    width: 60px;
+    height: auto;
+  }
+  .content {
+    min-width: 340px;
+  }
+  #overview {
+    display: flex;
+    flex-direction: column;
+  }
+  html {
+    min-height: 700px;
+  }
+  .berger {
+    visibility: visible;
+  }
+}
+
+#cookie-notif {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c2b8e0;
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+}
+
+#cookie-notif > img {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+
+.cookie {
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.cookie:hover {
+  background-color: #a096be;
+}
+
+#cookie-txt {
+  opacity: 0;
+  position: absolute;
+  top: 4.5%;
+  left: 18%;
 }
