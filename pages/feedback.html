@@ -33,19 +33,16 @@
         </div>
       </header>
       <main class="content">
-        <section id="feedback-container">
-          <form method="post" style="display: flex; flex-direction: column; align-items: center">
-            <input required type="tel" name="tel" placeholder="tel" />
-            <input type="email" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
-            <p style="margin: 5">Your birthday date: <input type="datetime-local" name="date" /></p>
-            <textarea name="textarea" placeholder="Put your feedback here"></textarea>
-            <label>Add screenshot: </label>
-            <input type="file" name="file" />
-            <p style="margin: 5">
+        <section>
+          <div id="feedback-container">
+            <div class="feedback-i1"><input required type="tel" name="tel" placeholder="tel" /></div>
+            <div class="feedback-i2"><input type="email" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /></div>
+            <div class="feedback-i3"><textarea name="textarea" placeholder="Put your feedback here"></textarea></div>
+            <div class="feedback-i4">
               <input checked type="checkbox" name="checkbox" style="margin-right: 7px" />Send me news
-            </p>
-            <input type="submit" name="submit" value="Send" />
-          </form>
+            </div>
+            <div class="feedback-i5"><input type="submit" name="submit" value="Send" /></div>
+          </div>
         </section>
       </main>
       <footer class="bottom">

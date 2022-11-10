@@ -6,6 +6,11 @@
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
     <title>osu!wiki</title>
   </head>
+  <style>
+    body {
+      overflow-y: hidden;
+    }
+  </style>
   <body>
     <div class="container">
       <header class="head">
@@ -51,21 +56,30 @@
           <div class="item" onclick="window.location.href = 'pages/skins.html'">
             <p>Skins</p>
           </div>
-          <div class="item">
-            <p>Something</p>
+          <div class="item" onclick="window.location.href = 'pages/topplayers.html'">
+            <p>O4EN' KRUTAYA PRACTICA</p>
+          </div>
+          <div class="item" onclick="window.location.href = 'pages/register.html'">
+            <p>Register</p>
           </div>
         </section>
       </main>
       <footer class="bottom">
-        <div id="disclaimer">
+        <div class="bottom-dis" id="disclaimer">
           <p>
             This is fanmade website created on academical purposes. Please use official site -
             <a href="ppy.osy.sh">ppy.osu.sh</a>
           </p>
         </div>
-        <address id="contacts">
+        <address class="address" id="contacts">
           <p>For contact use official email - <a href="mailto:support@ppy.sh">support@ppy.sh</a></p>
         </address>
+        <div class="socials" id="socials">
+          <div class="socials-image-container"><img src="./public/reddit.png"></div>
+          <div class="socials-image-container"><img src="./public/youtube.png"></div>
+          <div class="socials-image-container"><img src="./public/vk-social-network-logo.png"></div>
+          <div class="socials-image-container"><img src="./public/telegram.png"></div>
+        </div>
       </footer>
     </div>
     <div id="cookie-notif">
@@ -76,7 +90,61 @@
       <div id="c3" class="cookie">Cookie 3</div>
       <div id="c4" class="cookie">Cookie 4</div>
     </div>
+    <div id="pp" class="ontop">pp</div>
   </body>
   <script src="./js/anime.min.js"></script>
   <script src="./js/main.js"></script>
+  <script>
+    const getParabola = (gap) => {
+      let duration = 1500;
+      let x1 = 0, y1 = 0, x3 = anime.random(-100, 100), y3 = 0, x2 = (x1 + x3) / 2, y2 = -100;
+      let denom = (x1 - x2) * (x1 - x3) * (x2 - x3);
+      let A     = (x3 * (y2 - y1) + x2 * (y1 - y3) + x1 * (y3 - y2)) / denom;
+      let B     = (x3*x3 * (y1 - y2) + x2*x2 * (y3 - y1) + x1*x1 * (y2 - y3)) / denom;
+      let C     = (x2 * x3 * (x2 - x3) * y1 + x3 * x1 * (x3 - x1) * y2 + x1 * x2 * (x1 - x2) * y3) / denom;
+      let parabola = [[], []];
+      if (x3 > 0) {
+        for (let x = 0; x < 200; x += gap) {
+          parabola[0].push({value: x, duration: duration/(200 / gap)});
+          parabola[1].push({value: A * x * x + B * x + C, duration: duration/(200 / gap)});
+        }
+      }
+      else {
+        for (let x = 0; x > -200; x -= gap) {
+          parabola[0].push({value: x, duration: duration/(200 / gap)});
+          parabola[1].push({value: A * x * x + B * x + C, duration: duration/(200 / gap)});
+        }
+      }
+      return parabola;
+    }
+    let pp = document.getElementById("pp");
+    let interval;
+    pp.onmousedown = function() {
+      jump(true)
+    }
+    pp.onmouseup = function() {
+      jump(false);
+    }
+    const jump = (e) => {
+      if (e)
+        interval = setInterval(() => {
+          let appended = document.body.appendChild(pp.cloneNode(true));
+          appended.classList.remove("ontop");
+          let parabola = getParabola(1);
+          anime({
+            targets: appended,
+            duration: 500,
+            translateX: parabola[0],
+            translateY: parabola[1],
+            easing: "easeInQuint",
+            complete: () => {
+              document.body.removeChild(appended);
+            }
+          });
+        }, 10);
+      else {
+        clearInterval(interval);
+      }
+    }
+  </script>
 </html>

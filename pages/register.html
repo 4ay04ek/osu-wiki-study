@@ -33,16 +33,16 @@
         </div>
       </header>
       <main class="content">
-        <section style="display: flex; justify-content: center;">
-          <div class="images-container">
-            <div class="a img"><img src="../public/mVGQQlm_thumb_small.jpg" /></div>
-            <div class="b img"><img src="../public/ioevS3l_thumb_small.jpg" /></div>
-            <div class="c img"><img src="../public/hQfqMzB_thumb_small.jpg" /></div>
-            <div class="d img"><img src="../public/hTgisOI_thumb_small.jpg" /></div>
-            <div class="e img"><img src="../public/AGln6YW_thumb_small.jpg" /></div>
-            <div class="f img"><img src="../public/F4RgAI0_thumb_small.jpg" /></div>
-            <div class="g img"><img src="../public/iHePXXf_thumb_small.jpg" /></div>
-          </div>
+        <section>
+            <div id="auth-container">
+                <div><input name="login" placeholder="Login" autocomplete="off"></div>
+                <div><input name="password" placeholder="Password" autocomplete="off"></div>
+                <div><input style="cursor: pointer;" name="login" type="submit" value="Auth"></div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </section>
       </main>
       <footer class="bottom">
@@ -58,4 +58,19 @@
       </footer>
     </div>
   </body>
+  <script>
+    window.onload = () => {
+        prompt("Wanna register now?") == "Yes" ? alert("Cool!") : alert(":(");
+        let ans = prompt("I have cool-styled form, but please use this shitty prompt dialog and say me ur login:")
+        if (ans == "Admin") {
+            let ans1 = prompt("Ok, if so, you must know password: ");
+            if (ans1 == "sus") alert("Welcome back, my sir");
+            else if (ans1 == null || ans1 == "") alert("I hope u just misclicked");
+            else  {
+                confirm("Die, dirty lier");
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+            }
+        }
+    }
+  </script>
 </html>
